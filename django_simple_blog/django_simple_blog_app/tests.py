@@ -5,6 +5,12 @@ from .models import Entry
 
 
 class EntryModelTest(TestCase):
+
+    def test_published(self):
+        entry = Entry(title="My first post!")
+        self.assertIsNotNone(entry.published)
+        self.assertFalse(entry.published)
+
     def test_str(self):
         entry = Entry(title="My first post!")
         self.assertEqual(str(entry), entry.title)
